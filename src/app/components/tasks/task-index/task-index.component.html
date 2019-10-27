@@ -1,0 +1,36 @@
+<div class="app-body">
+    <div class="header">
+        <h1>Task Board</h1>
+        <h2>Task Count: {{tasks ? tasks.length : ''}}</h2>
+        <!-- <h2>All Tasks <i mat-icon class="material-icons" routerLink="/playlist/privateindex">check_box</i></h2> -->
+        <div class="row1">
+            <a class="buttons" mat-raised-button (click)="openTaskCreate()">Create New Task</a>
+        </div>
+        <mat-grid-list cols="3" rowHeight="5:1">
+                <mat-grid-tile>
+                        <h4>Not Completed: </h4>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <h4>In Progress: </h4>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <h4>Completed: </h4>
+                </mat-grid-tile>
+            </mat-grid-list>
+    </div>
+    <hr>
+    <div class="deck">
+        <div class="card" *ngFor="let task of tasks" [ngClass]="{'isNotStarted' : task.isNotStarted, 
+                    'isInProgress' : task.isInProgress, 
+                    'isCompleted' : task.isCompleted}">
+            <div class="cardContainer" (click)="openTaskDetail/(task.taskId)">
+                <h1>{{task.taskName}}</h1>
+                <h3>Not Completed: {{task.isNotStarted}}</h3>
+                <h3>In Progress: {{task.isInProgress}}</h3>
+                <h3>Completed: {{task.isCompleted}}</h3>
+                <i mat-icon class="material-icons" (click)="openTaskDelete(task.taskId)">delete</i>
+                <i mat-icon class="material-icons" (click)="openTaskUpdate(task.taskId)">edit</i>
+            </div>
+        </div>
+    </div>
+</div>
