@@ -1,0 +1,24 @@
+<div>
+    <h1>Create a Task</h1>
+</div>
+<hr>
+<div>
+    <form #f="ngForm" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <div>
+            <div>
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Task Name" formControlName="TaskName" type="TaskName" required />
+                    </mat-form-field>
+                </div>
+                <div class="description">
+                    <mat-form-field>
+                        <input matInput placeholder="Task Description" formControlName="TaskDescription"
+                            type="TaskDescription" required />
+                    </mat-form-field>
+                </div>
+            </div>
+            <button class="buttons" mat-raised-button class="nav-btn" type="submit">Create Playlist</button>
+        </div>
+    </form>
+</div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { Task } from '../../../models/Task'
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
+import { TaskCreateComponent } from '../task-create/task-create.component';
 
 @Component({
   selector: 'app-task-index',
@@ -13,9 +14,16 @@ export class TaskIndexComponent implements OnInit {
 tasks: any;
 dataSource: MatTableDataSource<Task>;
 
-  constructor(private _taskService: TaskService) { }
+  constructor(private _taskService: TaskService,
+              private _dialog: MatDialog) { }
 
   ngOnInit() {
     this._taskService.getTasks().subscribe(t => this.tasks = t);
+  }
+
+  openTaskCreate(){
+    const dialogRef = this._dialog.open(TaskCreateComponent)
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 }

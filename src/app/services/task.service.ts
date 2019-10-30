@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment'
+import { Task } from '../models/Task';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class TaskService {
 
   getTasks(){
     return this._http.get(`${environment.Api_Url}api/task`);
+  }
+
+  createTask(task: Task){
+    return this._http.post(`${environment.Api_Url}api/task`, task);
   }
 
   private getHeaders(){
