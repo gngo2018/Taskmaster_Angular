@@ -1,0 +1,31 @@
+<div *ngIf="task">
+    <div class="title">
+        <h2>
+            <label for="">Task: </label>
+            <span>{{task.taskName}}</span>
+        </h2>
+    </div>
+    <hr />
+    <div>
+        <label for="">Description: </label>
+        <span>{{task.taskDescription}}</span>
+    </div>
+    <div>
+        <label for="">Date Created: </label>
+        <span>{{task.dateCreated | date:'MM-dd-yyyy'}}</span>
+    </div>
+    <div>
+        <label for="">Date Updated: </label>
+        <span>{{task.dateUpdated | date:'MM-dd-yyyy'}}</span>
+    </div>
+    <div>
+        <label for="">Progress: </label>
+        <span *ngIf="task.isNotStarted">Task Not Started</span>
+        <span *ngIf="task.isInProgress">Task In Progress</span>
+        <span *ngIf="task.isCompleted">Task Completed</span>
+    </div>
+    <div class="icons">
+        <i mat-icon class="material-icons" (click)="openTaskDelete(task.taskId)">delete</i>
+        <i mat-icon class="material-icons" (click)="openTaskUpdate(task.taskId)">edit</i>
+    </div>
+    </div>

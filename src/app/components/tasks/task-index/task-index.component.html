@@ -20,11 +20,12 @@
     </div>
     <hr>
     <div class="deck">
-        <div class="card" *ngFor="let task of tasks" [ngClass]="{'isNotStarted' : task.isNotStarted, 
+        <div class="card" *ngFor="let task of tasks" 
+        [ngClass]="{'isNotStarted' : task.isNotStarted, 
                     'isInProgress' : task.isInProgress, 
                     'isCompleted' : task.isCompleted}">
-            <div class="cardContainer" (click)="openTaskDetail/(task.taskId)">
-                <h1>{{task.taskName}}</h1>
+            <div class="cardContainer">
+                <h1 (click)="openTaskDetail(task.taskId)">{{task.taskName}}</h1>
                 <h3>Not Completed: {{task.isNotStarted}}</h3>
                 <h3>In Progress: {{task.isInProgress}}</h3>
                 <h3>Completed: {{task.isCompleted}}</h3>

@@ -15,8 +15,16 @@ export class TaskService {
     return this._http.get(`${environment.Api_Url}api/task`);
   }
 
+  getTaskById(id : string){
+    return this._http.get(`${environment.Api_Url}api/task/${id}`)
+  }
+
   createTask(task: Task){
     return this._http.post(`${environment.Api_Url}api/task`, task);
+  }
+
+  updateTask(task : Task){
+    return this._http.put(`${environment.Api_Url}api/task`, task);
   }
 
   private getHeaders(){

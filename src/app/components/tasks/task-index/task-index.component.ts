@@ -3,6 +3,8 @@ import { TaskService } from 'src/app/services/task.service';
 import { Task } from '../../../models/Task'
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { TaskCreateComponent } from '../task-create/task-create.component';
+import { TaskDetailComponent } from '../task-detail/task-detail.component';
+import { TaskUpdateComponent } from '../task-update/task-update.component';
 
 @Component({
   selector: 'app-task-index',
@@ -25,5 +27,21 @@ dataSource: MatTableDataSource<Task>;
     const dialogRef = this._dialog.open(TaskCreateComponent)
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  openTaskDetail(id){
+    const dialogRef = this._dialog.open(TaskDetailComponent, {
+      data: {
+        id
+      }
+    })
+  }
+
+  openTaskUpdate(id){
+    const dialogRef = this._dialog.open(TaskUpdateComponent, {
+      data: {
+        id
+      }
+    })
   }
 }
