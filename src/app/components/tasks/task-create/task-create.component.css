@@ -1,3 +1,15 @@
+.mat-dialog-container{
+    background-color: blue;
+}
+.createTask{
+    font-family: 'Lustria', serif;
+}
 .description{
     height: 200%;
+}
+.nav-btn{
+    background-color: #cf5e13;
+}
+.icon {
+    text-align:right;
 }

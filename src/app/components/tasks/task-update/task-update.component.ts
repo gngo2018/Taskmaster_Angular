@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from 'src/app/models/Task';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { TaskService } from 'src/app/services/task.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-task-update',
@@ -23,6 +23,7 @@ export class TaskUpdateComponent implements OnInit {
     private _taskService : TaskService,
     private _router : Router,
     private _dialogRef: MatDialogRef<TaskUpdateComponent>,
+    private _dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) 
   { 
@@ -45,6 +46,10 @@ export class TaskUpdateComponent implements OnInit {
       IsCompleted: new FormControl(this.task.IsCompleted)
     })
   }
+
+  closeDialogue(){
+    this._dialog.closeAll();
+  }
   
   ngOnInit() {
   }
@@ -62,7 +67,6 @@ export class TaskUpdateComponent implements OnInit {
 
     this._taskService.updateTask(editTaskForm).subscribe(data => {
       this._dialogRef.close();
-      window.location.reload();
       this._router.navigate(['/task/index']);
     });
       console.log(editTaskForm)

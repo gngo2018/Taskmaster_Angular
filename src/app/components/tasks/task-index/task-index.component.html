@@ -1,31 +1,35 @@
 <div class="app-body">
     <div class="header">
-        <h1>Task Board</h1>
-        <h2>Task Count: {{tasks ? tasks.length : ''}}</h2>
-        <!-- <h2>All Tasks <i mat-icon class="material-icons" routerLink="/playlist/privateindex">check_box</i></h2> -->
+        <h1>Task List</h1>
+        <!-- <h2>Task Count: {{tasks ? tasks.length : ''}}</h2>
+        <h2>All Tasks <i mat-icon class="material-icons" routerLink="/playlist/privateindex">check_box</i></h2>
         <div class="row1">
             <a class="buttons" mat-raised-button (click)="openTaskCreate()">Create New Task</a>
+        </div> -->
+        <mat-grid-list cols="3" rowHeight="10:1">
+            <mat-grid-tile>
+                <h4>Sort By: </h4>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <h4>Task Count: {{tasks ? tasks.length : ''}}</h4>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                    <i mat-icon class="material-icons" (click)="openTaskCreate()">note_add</i>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div class="searchbar" hidden>
+            <i mat-icon id="searchicon" class="material-icons">search</i>
+            <input id="searchbar" type="search" placeholder="Search..."/>
         </div>
-        <mat-grid-list cols="3" rowHeight="5:1">
-                <mat-grid-tile>
-                        <h4>Not Completed: </h4>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <h4>In Progress: </h4>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                        <h4>Completed: </h4>
-                </mat-grid-tile>
-            </mat-grid-list>
     </div>
     <hr>
     <div class="deck">
-        <div class="card" *ngFor="let task of tasks" 
-        [ngClass]="{'isNotStarted' : task.isNotStarted, 
+        <div class="card" *ngFor="let task of tasks" [ngClass]="{'isNotStarted' : task.isNotStarted, 
                     'isInProgress' : task.isInProgress, 
                     'isCompleted' : task.isCompleted}">
             <div class="cardContainer">
                 <h1 (click)="openTaskDetail(task.taskId)">{{task.taskName}}</h1>
+                <h5>Date Created: {{task.dateCreated | date:'MM-dd-yyyy'}}</h5>
                 <h3>Not Completed: {{task.isNotStarted}}</h3>
                 <h3>In Progress: {{task.isInProgress}}</h3>
                 <h3>Completed: {{task.isCompleted}}</h3>

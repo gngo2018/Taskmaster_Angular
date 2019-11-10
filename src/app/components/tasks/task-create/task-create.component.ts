@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { TaskService } from 'src/app/services/task.service';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-task-create',
@@ -16,6 +16,7 @@ export class TaskCreateComponent implements OnInit {
   constructor(private _taskService: TaskService, 
               private _form: FormBuilder, 
               private _router: Router, 
+              private _dialog: MatDialog,
               private dialogRef: MatDialogRef<TaskCreateComponent>
               )             
               { 
@@ -23,6 +24,10 @@ export class TaskCreateComponent implements OnInit {
               }
 
   ngOnInit() {
+  }
+
+  closeDialogue(){
+    this._dialog.closeAll();
   }
 
   createForm(){

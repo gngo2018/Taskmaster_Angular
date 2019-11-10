@@ -1,24 +1,30 @@
-<div>
-    <h1>Create a Task</h1>
-</div>
-<hr>
-<div>
-    <form #f="ngForm" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-        <div>
+<div class="createTask">
+    <div>
+        <h1>Create a Task</h1>
+    </div>
+    <hr>
+    <div>
+        <form #f="ngForm" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
             <div>
                 <div>
-                    <mat-form-field>
-                        <input matInput placeholder="Task Name" formControlName="TaskName" type="TaskName" required />
-                    </mat-form-field>
+                    <div>
+                        <mat-form-field>
+                            <input matInput placeholder="Task Name" formControlName="TaskName" type="TaskName"
+                                required />
+                        </mat-form-field>
+                    </div>
+                    <div class="description">
+                        <mat-form-field>
+                            <textarea matInput placeholder="Task Description" formControlName="TaskDescription"
+                                type="TaskDescription" required maxlength="150"></textarea>
+                        </mat-form-field>
+                    </div>
                 </div>
-                <div class="description">
-                    <mat-form-field>
-                        <input matInput placeholder="Task Description" formControlName="TaskDescription"
-                            type="TaskDescription" required />
-                    </mat-form-field>
-                </div>
+                <button class="buttons" mat-raised-button class="nav-btn" type="submit">Create Task</button>
             </div>
-            <button class="buttons" mat-raised-button class="nav-btn" type="submit">Create Task</button>
+        </form>
+        <div class="icon">
+            <i mat-icon class="material-icons" (click)="closeDialogue()">keyboard_return</i>
         </div>
-    </form>
+    </div>
 </div>

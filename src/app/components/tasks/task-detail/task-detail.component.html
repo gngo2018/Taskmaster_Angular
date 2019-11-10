@@ -1,4 +1,4 @@
-<div *ngIf="task">
+<div class="taskDetail" *ngIf="task">
     <div class="title">
         <h2>
             <label for="">Task: </label>
@@ -25,7 +25,6 @@
         <span *ngIf="task.isCompleted">Task Completed</span>
     </div>
     <div class="icons">
-        <i mat-icon class="material-icons" (click)="openTaskDelete(task.taskId)">delete</i>
-        <i mat-icon class="material-icons" (click)="openTaskUpdate(task.taskId)">edit</i>
+        <i mat-icon class="material-icons" (click)="closeDialogue()">keyboard_return</i>
     </div>
     </div>

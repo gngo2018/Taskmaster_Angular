@@ -1,5 +1,10 @@
 .deck{
     text-align:center;
+    background-color: lightgrey;
+    padding-top:5%;
+    border: 2px solid black;
+    border-radius: 3px;
+    color: black;
 }
 .card{
     box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
@@ -11,11 +16,21 @@
     border: 2px solid black;
     border-radius: 3px;
     margin: 0 1vw 1vw 1vw;
-    font-family: 'Lustria', serif;
     opacity: .9;
     position: inherit;
     z-index: 0;
 }
+
+.searchbar{
+    padding-bottom:4px;
+}
+
+#searchbar{
+    width:250px;
+    font-size: 50pt;
+}
+
+
 
 .card:hover{
     box-shadow: 0.5 0.5em 1em rgba(0,0,0,0.2);
@@ -26,7 +41,7 @@
 }
 
 .buttons{
-    background-color:blue;
+    background-color:#cf5e13;
 }
 
 #button1 {
@@ -35,16 +50,15 @@
 
 .header{
     text-align: center;
-    padding: 0.5vw 0 1vw 0;
+    padding: 0vw 0 1vw 0;
+    background-color: #286dc7;
+    border: 2px solid black;
+    border-radius: 3px;
 }
 
 i {
     position: inherit;
     z-index: 3 !important;
-}
-
-.deck {
-    color: black;
 }
 
 .row1 {

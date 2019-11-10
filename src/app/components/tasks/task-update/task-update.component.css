@@ -1,3 +1,16 @@
-.submitButton{
-    background-color:red ;
+.updateTask{
+    font-family: 'Lustria', serif;
+}
+
+.nav-btn{
+    background-color: #cf5e13;
+    color: black;
+}
+
+.icon {
+    text-align:right;
+}
+
+.checkbox input{
+    text-align: right;
 }
